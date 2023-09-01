@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    virt-git = {
+    git = {
       url = "github:uwzis/gpu-passthrough-manager";
       flake = false;
     };
@@ -19,9 +19,9 @@
       ];
     in with pkgs; {
       GPUPM = stdenv.mkDerivation rec {
-        name = "virt-manager";
+        name = "GPUPM";
         version = "1.0";
-        src = inp.virt-git;
+        src = inp.git;
         nativeBuildInputs = buildStuff;
         buildInputs = buildStuff;
         installPhase = ''
